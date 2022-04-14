@@ -1,0 +1,22 @@
+{
+  "extends": "./base-configs/tsconfig-base.json",
+
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build", "dist"],
+
+  "compilerOptions": {
+    "types": [
+      "node",
+      "@types/testing-library__jest-dom"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"]
+    }
+  },
+
+  "references": [
+    { "path": "../../ui/component-1" },
+    { "path": "../../utils/util--foo-1" }
+  ]
+}
