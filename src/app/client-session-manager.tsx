@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
 type ctxType = boolean;
-
-let resetClientSession: () => void;
-
-const SessionCtx = React.createContext<ctxType>(false);
-
-type propsType = {
+type ClientSessionProvidePropsType = {
   children: JSX.Element;
 };
 
+const SessionCtx = React.createContext<ctxType>(false);
+let resetClientSession: () => void;
 let id_setTimeOut: ReturnType<typeof setTimeout>;
 
-const ClientSessionProvide = (props: propsType) => {
+const ClientSessionProvide = (props: ClientSessionProvidePropsType) => {
   const { children } = props;
-
   const [loginState, setLoginState] = useState(false);
 
   useEffect(() => {
@@ -32,6 +28,7 @@ const ClientSessionProvide = (props: propsType) => {
   }, []);
 
   console.info('in ClientSessionProvide, loginState', loginState);
+
   return (
     <SessionCtx.Provider value={loginState}>
       <div>
