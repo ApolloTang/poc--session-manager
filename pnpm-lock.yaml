@@ -10,6 +10,7 @@ specifiers:
   '@babel/preset-env': ^7.8.6
   '@babel/preset-react': ^7.8.3
   '@babel/preset-typescript': ^7.12.1
+  '@rushstack/eslint-patch': ^1.0.6
   '@testing-library/jest-dom': ^5.14.1
   '@testing-library/react': ^11.1.0
   '@types/jest': 25.1.4
@@ -82,6 +83,7 @@ devDependencies:
   '@babel/preset-env': 7.16.11_@babel+core@7.17.9
   '@babel/preset-react': 7.16.7_@babel+core@7.17.9
   '@babel/preset-typescript': 7.16.7_@babel+core@7.17.9
+  '@rushstack/eslint-patch': 1.1.2
   '@testing-library/jest-dom': 5.16.4
   '@testing-library/react': 11.2.7_react-dom@17.0.2+react@17.0.2
   '@types/jest': 25.1.4
@@ -1755,6 +1757,10 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+    dev: true
+
+  /@rushstack/eslint-patch/1.1.2:
+    resolution: {integrity: sha512-oe5WJEDaVsW8fBlGT7udrSCgOwWfoYHQOmSpnh8X+0GXpqqcRCP8k4y+Dxb0taWJDPpB+rdDUtumIiBwkY9qGA==}
     dev: true
 
   /@sinonjs/commons/1.8.3:
@@ -9103,8 +9109,16 @@ packages:
       yargs: 13.3.2
     dev: true
 
+  /webpack-combine-loaders/2.0.4:
+    resolution: {integrity: sha512-5O5PYVE5tZ3I3uUm3QB7niLEJzLketl8hvAcJwa4YmwNWS/vixfVsqhtUaBciP8J4u/GwIHV52d7kkgZJFvDnw==}
+    dependencies:
+      qs: 6.9.7
+    dev: true
+
   /webpack-config-utils/2.3.1:
     resolution: {integrity: sha512-0uC5uj7sThFTePTQjfpe5Wqcbw3KSCxqswOmW96lwk2ZI2CU098rWY2ZqOVGJQYJ3hfEltmjcLNkKutw8LJAlg==}
+    dependencies:
+      webpack-combine-loaders: 2.0.4
     dev: true
     bundledDependencies:
       - webpack-combine-loaders

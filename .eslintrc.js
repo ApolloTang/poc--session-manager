@@ -1,8 +1,10 @@
+require('@rushstack/eslint-patch/modern-module-resolution');
+
 module.exports = {
   root: true,
   extends: ['./base-configs/eslint-base/react.js'],
   parserOptions: {
-    project: './jsconfig.json',
+    project: './tsconfig.json',
     createDefaultProgram: true, //<----- https://stackoverflow.com/a/64488474/3136861
     tsconfigRootDir: __dirname,
     sourceType: 'module',

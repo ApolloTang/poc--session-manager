@@ -10,11 +10,12 @@ type propsType = {
   children: JSX.Element;
 };
 
+let id_setTimeOut: ReturnType<typeof setTimeout>;
+
 const ClientSessionProvide = (props: propsType) => {
   const { children } = props;
 
-  let [loginState, setLoginState] = useState(false);
-  let id_setTimeOut: ReturnType<typeof setTimeout>;
+  const [loginState, setLoginState] = useState(false);
 
   useEffect(() => {
     resetClientSession = () => {
@@ -23,18 +24,18 @@ const ClientSessionProvide = (props: propsType) => {
       }
       setLoginState(true);
       id_setTimeOut = setTimeout(() => {
-        console.log('-------- session Expire ----------------');
+        console.info('-------- session Expire ----------------');
         setLoginState(false);
       }, 5000);
-      console.log('------ session Reset ----------');
+      console.info('------ session Reset ----------');
     };
   }, []);
 
-  console.log('in ClientSessionProvide, loginState', loginState)
+  console.info('in ClientSessionProvide, loginState', loginState);
   return (
     <SessionCtx.Provider value={loginState}>
       <div>
-        {console.log('ClientSessionProvide rendered')}
+        {console.info('ClientSessionProvide rendered')}
         {children}
       </div>
     </SessionCtx.Provider>
@@ -48,4 +49,3 @@ export {
   //                          https://stackoverflow.com/questions/32558514/javascript-es6-export-const-vs-export-let
   //                          it is assign the value after ClientSessionProvide has mounted.
 };
-
