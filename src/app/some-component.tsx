@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import {SessionCtx} from './client-session-manager';
-
-type propsType = {
-  children: JSX.Element;
-};
+import React from 'react';
+import { SessionCtx } from './client-session-manager';
 
 function SomeComponent() {
   const isFullLogin = React.useContext(SessionCtx);
-  console.log('in SomeComponent, loginState', isFullLogin)
+  console.info('in SomeComponent, isFullLogin', isFullLogin);
   return (
     <>
-      {console.log('someComponent rendered')}
-      <div>isFullLogin: {isFullLogin+''}</div>
+      {console.info('someComponent rendered')}
+      <div>isFullLogin: {String(isFullLogin)}</div>
     </>
   );
 }
 
-export {SomeComponent}
+export { SomeComponent };

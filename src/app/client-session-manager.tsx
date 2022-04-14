@@ -11,26 +11,26 @@ let id_setTimeOut: ReturnType<typeof setTimeout>;
 
 const ClientSessionProvide = (props: ClientSessionProvidePropsType) => {
   const { children } = props;
-  const [loginState, setLoginState] = useState(false);
+  const [isFullLogin, setIsFullLogin] = useState(false);
 
   useEffect(() => {
     resetClientSession = () => {
       if (id_setTimeOut) {
         clearTimeout(id_setTimeOut);
       }
-      setLoginState(true);
+      setIsFullLogin(true);
       id_setTimeOut = setTimeout(() => {
         console.info('-------- session Expire ----------------');
-        setLoginState(false);
+        setIsFullLogin(false);
       }, 5000);
       console.info('------ session Reset ----------');
     };
   }, []);
 
-  console.info('in ClientSessionProvide, loginState', loginState);
+  console.info('in ClientSessionProvide, isFullLoginState', isFullLogin);
 
   return (
-    <SessionCtx.Provider value={loginState}>
+    <SessionCtx.Provider value={isFullLogin}>
       <div>
         {console.info('ClientSessionProvide rendered')}
         {children}
