@@ -1,5 +1,3 @@
-require('@rushstack/eslint-patch/modern-module-resolution');
-
 module.exports = {
   plugins: ['@typescript-eslint', 'simple-import-sort'],
 
